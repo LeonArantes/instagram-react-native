@@ -9,8 +9,6 @@ export const Container = styled.View`
 export const WrapperStories = styled.View`
   width: 100%;
   height: auto;
-  align-items: center;
-  justify-content: center;
 `;
 
 export const WrapperPostFeed = styled.View`

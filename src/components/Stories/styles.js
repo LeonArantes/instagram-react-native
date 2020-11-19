@@ -22,6 +22,7 @@ export const CircleStorie = styled(ImageBlurLoading).attrs({
   borderRadius: 50,
 })`
   flex: 1;
+  border-radius: 50px;
 `;
 
 export const ButtonPlus = styled(LinearGradient).attrs({

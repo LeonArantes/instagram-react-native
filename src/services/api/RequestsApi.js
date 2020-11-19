@@ -11,19 +11,22 @@ export class Request {
     return response.data.graphql.user;
   };
 
-  getRandomImages = async (search) => {
+  getRandomImages = async (search, page) => {
     const response = await PexelsApi.get('/search', {
       headers: {
         authorization: '563492ad6f917000010000019bbcaa18ce6d499599e08cf2b0acde8e',
       },
       params: {
         query: search,
-        page: 1,
+        page: page,
+        per_page: 30,
       },
     });
 
-    return response.data.photos;
+    return response.data;
   };
 }
 
 export default new Request();
+
+//https://www.instagram.com/web/search/topsearch/?context=user&count=0&query=

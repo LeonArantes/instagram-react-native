@@ -1,19 +1,53 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { Container, Header, WrapperProfileImage, ProfileImage } from './styles';
+import {
+  Container,
+  Header,
+  WrapperHeaderItems,
+  WrapperProfileImage,
+  ProfileImage,
+  ProfileName,
+  ImagePost,
+  FooterButtons,
+  Button,
+} from './styles';
 
-const PostFeed = ({ dataMyProfile }) => {
+import IconMessage from '../../assets/Icons/message.svg';
+import IconHeart from '../../assets/Icons/heart.svg';
+import IconShare from '../../assets/Icons/share.svg';
+
+const PostFeed = ({ data }) => {
+  console.log(data);
   return (
     <Container>
       <Header>
-        <WrapperProfileImage>
-          <ProfileImage
-            thumbnailSource={{ uri: dataMyProfile.profile_pic_url }}
-            source={{ uri: dataMyProfile.profile_pic_url_hd }}
-          />
-        </WrapperProfileImage>
+        <WrapperHeaderItems>
+          <WrapperProfileImage>
+            <ProfileImage
+              thumbnailSource={{ uri: data.avatar_thumbnail }}
+              source={{ uri: data.avatar_source }}
+            />
+          </WrapperProfileImage>
+          <ProfileName> {data.username} </ProfileName>
+        </WrapperHeaderItems>
       </Header>
-      <Text> Post Feed </Text>
+
+      <ImagePost
+        thumbnailSource={{ uri: data.post_thumbnail }}
+        source={{ uri: data.post_source }}
+      />
+
+      <FooterButtons>
+        <Button>
+          <IconHeart width={18} stroke={'#FFFFFF'} />
+        </Button>
+        <Button>
+          <IconMessage width={18} style={{ transform: [{ rotate: '90deg' }] }} stroke={'#FFFFFF'} />
+        </Button>
+        <Button>
+          <IconShare width={18} stroke={'#FFFFFF'} />
+        </Button>
+      </FooterButtons>
     </Container>
   );
 };
